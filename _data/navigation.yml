@@ -4,7 +4,7 @@ main:
     url: /publications/
 
   - title: "Book Reviews"
-    url: /BookReviews/    
+    url: /bookReviews/    
 
   - title: "Fun with R"
     url: /funwithR/    

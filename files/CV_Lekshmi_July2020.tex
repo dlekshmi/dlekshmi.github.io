@@ -1,0 +1,334 @@
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% "ModernCV" CV and Cover Letter
+% LaTeX Template
+% Version 1.1 (9/12/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Xavier Danaux (xdanaux@gmail.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template requires the moderncv.cls and .sty files to be in the same 
+% directory as this .tex file. These files provide the resume style and themes 
+% used for structuring the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvstyle{casual} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+
+\usepackage[scale=0.9,top = +0.3in]{geometry}
+%\usepackage[scale=0.9,top = +0.3in, bottom = 0.5in]{geometry} % Reduce document margins
+%\setlength{\hintscolumnwidth}{1cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+\usepackage{amsmath}
+
+
+
+\newcommand*{\httpslink}[2][]{% <=======================================
+	\ifthenelse{\equal{#1}{}}%
+	{\href{https://#2}{#2}}%
+	{\href{https://#2}{#1}}}
+
+\newcommand*{\googlescholarsocialsymbol}  {\includegraphics[width=0.5cm]{Logos/googlescholar3.jpg}~} 
+\newcommand*{\researchgatesocialsymbol}  {\includegraphics[width=0.5cm]{Logos/researchgate4.jpg}~} 
+\newcommand*{\orcidsocialsymbol}  {\includegraphics[width=0.5cm]{Logos/orcidv2_3.png}~} 
+\newcommand*{\githubssocialsymbol}  {\includegraphics[width=0.5cm]{Logos/githubv2_2.png}~}
+\newcommand*{\linkedinssocialsymbol}  {\includegraphics[width=0.5cm]{Logos/linkedin2.png}~}
+\newcommand*{\twitterssocialsymbol}  {\includegraphics[width=0.5cm]{Logos/twitter2.png}~} 
+\newcommand*{\addresssymbols}  {\includegraphics[width=0.4cm]{Logos/Home2.png}~}
+\newcommand*{\emailsymbols}  {\includegraphics[width=0.4cm]{Logos/email2.jpg}~}
+
+
+\makeatletter
+\RenewDocumentCommand{\social}{O{}O{}m}{%
+	\ifthenelse{\equal{#2}{}}%
+	{ 
+		\ifthenelse{\equal{#1}{linkedin}}{\collectionadd[linkedin]{socials}{\protect\httpslink[ \hspace*{-10pt}]{www.linkedin.com/in/#3}}}{}%
+		\ifthenelse{\equal{#1}{twitter}}{\collectionadd[twitter]{socials}{\protect\httpslink[  \hspace*{-10pt}]{www.twitter.com/#3}}}{}%
+		\ifthenelse{\equal{#1}{googlescholar}}{\collectionadd[googlescholar]{socials}{\protect\httpslink[  \hspace*{-10pt}]{scholar.google.com/citations?user=#3}}}{}% <================================================================
+		\ifthenelse{\equal{#1}{researchgate}}{\collectionadd[researchgate]{socials}{\protect\httpslink[  \hspace*{-10pt}]{www.researchgate.net/profile/#3}}}{}% <================================================================
+		\ifthenelse{\equal{#1}{github}}  {\collectionadd[github]{socials}  {\protect\httpslink[#3]{www.github.com/#3}}}     {}%
+	}
+	{\collectionadd[#1]{socials}{\protect\httpslink[#3]{#2}}}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\renewcommand*{\footsymbol}{{~~~{\rmfamily\textcolor{white}{\textbullet}}~~~}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% REARRANGING FOOTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\makeatletter
+\renewcommand*{\makecvfoot}{%
+	\recomputecvfootlengths{}%
+	\fancypagestyle{plain}{%
+		\fancyfoot[c]{%
+			\parbox[b]{\footwidth}{%
+				\centering%
+				\color{color2}\addressfont%
+				\vspace{\baselineskip}% forces a white line to ensure space between main text and footer (as footer height can't be known in advance)
+				\collectionloop{phones}{% the key holds the phone type (=symbol command prefix), the item holds the number
+					\addtofoot{\hspace*{-25pt}\csname\collectionloopkey phonesymbol\endcsname\collectionloopitem}}%
+				\flushfoot\@firstfootelementtrue
+				\ifthenelse{\isundefined{\@email}}{}{\addtofoot{\hspace*{10pt}\emailsymbols\emaillink{\@email}}}%
+				\ifthenelse{\isundefined{\@homepage}}{}{\addtofoot{\homepagesymbol\httplink{\@homepage}}}%
+				\collectionloop{socials}{% the key holds the social type (=symbol command prefix), the item holds the link
+					\addtofoot{\csname\collectionloopkey socialsymbol\endcsname\collectionloopitem}}%
+				%
+				\flushfoot
+				\ifthenelse{\isundefined{\@addressstreet}}{}{\hspace*{-10pt}\addtofoot{\addresssymbols\@addressstreet}%
+					\ifthenelse{\equal{\@addresscity}{}}{}{\addtofoot[~--~]{\@addresscity}}% if \addresstreet is defined, \addresscity and \addresscountry will always be defined but could be empty
+					\ifthenelse{\equal{\@addresscountry}{}}{}{\addtofoot[~--~]{\@addresscountry}}%
+				}%\\
+				\flushfoot \\ \vspace*{7pt}
+				\ifthenelse{\isundefined{\@extrainfo}}{}{\addtofoot{\@extrainfo}}
+				\ifthenelse{\lengthtest{\footboxwidth=10pt}}{}{\flushfoot}% the lengthtest is required to avoid flushing an empty footer, which could cause a blank line due to the \\ after the address, if no other personal info is used
+	}}}%
+	\pagestyle{plain}}
+\makeatother
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+\firstname{} % Your first name
+%\familyname{{\huge{\scshape\bfseries{Lekshmi Dharmarajan}}}} % Your last name
+\familyname{{\fontsize{26}{26}{\bfseries{\textcolor{black}{Lekshmi Dharmarajan}}}}\hspace*{170pt}{\fontsize{15}{15}{\emph{Curriculum Vitae}}}} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+
+\address{Inselstrasse 63, 4057 Basel, Switzerland}
+\mobile{+41(0)786572205}
+\email{lekshmi.dharmarajan@gmail.com}
+
+\extrainfo{\href{https://www.twitter.com/lekshmidhar}{\twitterssocialsymbol}~%
+	\hspace*{8pt}
+	\href{https://www.linkedin.com/in/lekshmi-dharmarajan-76321222}{\linkedinssocialsymbol}~%
+	\hspace*{8pt}
+%	\href{https://www.researchgate.net/profile/Srivathsan_Adivarahan}{\researchgatesocialsymbol}~%
+%	\hspace*{8pt}
+%	\href{https://scholar.google.com/citations?user=9IrR5UkAAAAJ&hl=en&oi=ao}{\googlescholarsocialsymbol}~%
+%	\hspace*{8pt}
+%	\href{https://orcid.org/0000-0003-0173-798X}{\orcidsocialsymbol}~%
+%	\hspace*{8pt}
+%	\href{https://github.com/dlekshmi}{\githubssocialsymbol}~%
+}
+
+
+\def\labelitemi{$\star$}
+\usepackage{lastpage}
+\rfoot{\addressfont\itshape\textcolor{gray}{Page \thepage\ of \pageref{LastPage}}}
+%%----------------------------------------------------------------------------------------
+%\addtolength{\topmargin}{-0.5in}
+%%\addtolength{\bottommargin}{-.5in}
+%\addtolength{\voffset}{+1.5in}
+\begin{document}
+
+
+\makecvtitle % Print the CV title
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+\vspace*{-35pt}
+
+\section{Education}
+\cventry{2015-present}{ Ph.D. in computational biology}{Dept. of Biosystems Science and Engineering}{ETH-Z\"urich, Switzerland}{}{}
+  % Arguments not required can be left empty
+\cventry{2012-2014}{Masters of Science in Biotechnology (Major in Systems Biology)}{ETH Z\"urich}{Switzerland}{\textit{GPA -- 5.52/6.00}}{}
+\cventry{2008-2012}{B.Tech. Industrial Biotechnology}{SASTRA University}{India}{\textit{GPA -- 9.05/10}}{}
+
+\section{Ph.D. Thesis}
+
+\cvitem{Title}{\emph{Analyzing single-cell longitudinal data with nonlinear mixed effect models}}
+\cvitem{Supervisors}{Prof. Dr. Joerg Stelling}
+\cvitem{Description}{ I defended my PhD thesis in May 2020, and  expect the final confirmation in September, 2020. During the course of my PhD, I have designed and executed computational projects and also ventured into the wet-lab to generate my own microscopy images using budding yeast. I implemented a computational pipeline to infer nonlinear mixed effect models (NLMEs) of signaling networks from time-lapse imaging data. Using the model we inferred with the pipeline, we identified which processes in endocytosis contribute most to the observed heterogeneity in a population of single-cells. My pet project involves modeling the impact of mutations found in cancer on MAPK signaling dynamics. My main expertise lies in longitudinal data analysis, modeling biological data with mechanistic models, nonlinear optimization and uncertainty quantification.  In addition, I have framed exercises and organized tutorials for  a semester course on Experimental Design for master students of Biotechnology at ETH.}
+
+
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Research Experience}
+
+
+\cventry{Oct 2014 - May 2015}{Research Trainee}{}{under \textit{Dr. Julio Saez-Roderiguez}}{Systems Biomedicine Group, European Bioinformatics Institute, Hinxton, UK (currently at University of Heidelberg)}{Research assistant, assisting in projects
+\vspace*{0.3pt}
+%%Detailed achievements:
+%\vspace*{1.5pt}
+\begin{itemize}
+\item[$\star$] Developed a pipeline to analyze micro-array data and SNPs arrays: used meta-analysis to combine two different studies,  and applied regularized regression methods to understand heterogeneity in Multiple Sclerosis patients using gene expression data from PBMCs and SNPs in R. 
+\item Optimized existing code and identified causal edges in a gene network using Integer Linear Programming with CPLEX interfaced with Python. \newline{} 
+\end{itemize}}
+\vspace*{2pt}
+\cventry{Nov 2013 - Jul 2014}{Master Thesis}{}{under  \textit{Prof. Dr. Niko Beerenwinkel}}{Computational Biology group, ETH-Z\"urich}{Inferring Pathways in Glioblastoma and Identifying Hidden Nodes in Networks using Nested Effect Models.
+\vspace*{0.5pt} 
+\begin{itemize}
+\item Extended a probabilistic graphical framework called `nested effect models' to account for multiple perturbations to a gene in R, interfaced with C. 
+\item Used the extension and inferred network structures of pathways with most altered genes in Glioblastoma, using publicly available data sets. \newline{}
+\end{itemize}}
+\vspace*{2pt} 
+\cventry{Aug 2013 - Nov 2013}{Research Project}{}{under \textit{Dr. Moritz Lang} and \textit{Prof. Dr. Joerg Stelling}}{Computational Biology group, ETH-Z\"urich}{
+In-silico analysis of a bistable switch in \textit{Saccharomyces cerevisiae}
+\vspace*{0.3pt} 
+%Detailed achievements:
+%\vspace*{1.5pt}
+\begin{itemize}
+\item[$\star$] Described a synthetic biological switch using an ODE based model in MATLAB. 
+\item Calibrated the model from data, predicted regimes of the model parameters showing bistability, and assessed the impact of noise on the system. \newline{} 
+\end{itemize}}
+\vspace*{0.3pt}
+\cventry{Dec 2011 - Apr 2012}{Bachelor Thesis}{}{under \textit{Prof. Dr. Amol Kulkarni, Industrial Flow Modeling Group}}{National Chemical Laboratories, Pune}{Studied the effect of mechanical vibrations in stagnant liquids and flow in microchannels.
+\vspace*{0.3pt} 
+%Detailed achievements:
+%\vspace*{1.5pt}
+\begin{itemize}
+\item Modeled the phenomenon in MATLAB to explain our observations. \newline{} 
+\end{itemize}}
+%\vspace*{2pt}
+% \cventry{May - July 2011}{Summer Intern}{}{}{in \textit{Research and Development
+% Department - Upstream Processing}, BIOCON LTD}{Assisted in the analysis of daily samples and quality control using High-Performance Liquid Chromatography (Affinity Protein A column-based separations of IgGs). }
+
+\pagebreak
+%\makecvtitle
+\section{Publications}
+
+%\cvitem{Scholarship}{\emph{ETH Scholarship for Master Students - A total 5800 CHF was awarded for Academic Year 2013/14}}
+\cvitem{Journal Paper}{\href{https://pubs.acs.org/doi/10.1021/acssynbio.6b00013}{\emph{Gn{\"u}gge, R., \textbf{Dharmarajan, L.}, Lang, M. and Stelling, J., 2016. An Orthogonal Permease-Inducer-Repressor Feedback Loop Shows Bistability.  \textbf{ACS synthetic biology}, 5(10), pp.1098-1107.}}}
+
+
+%\vspace*{-35pt}
+\cvitem{Journal Paper}{\href{https://doi.org/10.1016/j.cels.2018.12.007}{\emph{ \textbf{Dharmarajan, L.}*, Kaltenbach, H. M.*, Rudolf, F., and Stelling, J. (2019). A simple and flexible computational framework for inferring sources of heterogeneity from single-cell dynamics. \textbf{Cell systems}, 8(1), 15-26.}}}
+
+
+
+%\vspace*{3pt}
+%\cvitem{Jul-Nov 2010}{\textbf{Gold Medal at iGEM 2010}}
+%\cvitem{Title}{\textit{Probiotic Sweetner controlled by Pseudo-AND gate}}
+%\cvitem{Supervisor}{\textit{Guhan Jayaraman}, Indian Institute of Technology Madras}
+%\cvitem{}{
+%%Detailed achievements:
+%\begin{itemize}
+%\item Designed and developed a novel pH controlled expression system
+%\item Designed and submitted two DNA parts to the parts registry at MIT while characterizing one of them.
+%\end{itemize}}
+
+%----------------------------------------------------------------------------------------
+%	AWARDS SECTION
+%----------------------------------------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	COMMUNICATION SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+%\section{Communication Skills}
+
+%\cvitem{2010}{Oral Presentation at the California Business Conference}
+%\cvitem{2009}{Poster at the Annual Business Conference in Oregon}
+
+%----------------------------------------------------------------------------------------
+%	LANGUAGES SECTION
+%----------------------------------------------------------------------------------------
+\section{Oral Presentations}
+ \cvitem{Nov 2018}{\emph{\textbf{"Inference of nonlinear mixed effect models from single-cell time-lapse data using two-stage approaches"}, Intra-departmental seminar, ETH-Z\"urich, Switzerland}}
+ \cvitem{Sep 2019}{\emph{\textbf{"A simple and flexible computational framework for inferring sources of heterogeneity from single-cell dynamics."}, [BC]2 conference BASEL LIFE, Switzerland}. \textbf{Won the best flash talk prize.} }
+% \cvitem{Sep 2017}{\emph{\textbf{"Revealing features of mRNP organization using super-resolution microscopy"}, \textbf{Srivathsan Adivarahan}, Samir Rahman and Daniel Zenklusen, \textbf{RiboClub Meeting}}, Orford, Quebec}
+% \cvitem{Aug 2017}{\emph{\textbf{"Revealing features of mRNP organization using super-resolution microscopy"}, Daniel Zenklusen, \textbf{Srivathsan Adivarahan} and Samir Rahman, \textbf{CSHL meeting}}, Cold Spring Harbor, NY}
+% %\cvitem{Oct 2016}{\emph{Investigating the role of mRNP structure in translation and mRNA metabolism, AXIS meeting}, IRCM, Montr\' eal}
+% %\cvitem{March 2016}{\emph{Studying the role of mRNP structure on its function}, AXIS meeting, IRCM, Montr\' eal}
+% \cvitem{Apr 2015}{\emph{Engineering a Yeast Artificial Chromosome-based system for expressing heterologous genes in Saccharomyces cerevisiae}, Master thesis presentation, ETH Z\" urich}
+% \cvitem{Apr 2012}{\emph{Neural Network Model of Basal Ganglia for Arm Reaching Movement}, Master thesis presentation, IIT Madras}
+
+% %\cvlistdoubleitem{Synthetic Biology}{Basic Graph Theory}
+% %\cvlistdoubleitem{Bioinformatics}{Introduction to Computational Neuroscience}
+% %\cvlistdoubleitem{Introduction to Biological Computers}{Molecular Biology}
+% %\cvlistdoubleitem{Probability and Random Processes}{Genetic Engineering}
+% %\cvlistdoubleitem{Systems Biology}{Biotechnology $\&$ Biological Engineering}
+% %\cvlistdoubleitem{Mathematical Modeling in Systems Biology}{Metabolic Regulation}
+
+\section{Poster Presentations} 
+
+\cvitem{Jul 2015}{\emph{Classifying and Understanding Heterogeneous Prognosis of Multiple Sclerosis in Patients},  at International Conference on Systems Biology of Human Disease, Heidelberg, Germany}
+\cvitem{Nov 2017}{\emph{Inference of nonlinear mixed effect models from single-cell data
+using two-stage approaches}, SystemsX Conference, Switzerland}
+\cvitem{Mar 2018}{\emph{Inference of nonlinear mixed effect models from single-cell time-lapse data using two-stage approaches}, Single-Cell Biology Conference, United Kingdom}
+\cvitem{September 2019}{\emph{Simple and flexible framework to infer sources of cell-to-cell variation in time-lapse imaging data },  [BC]2 conference BASEL LIFE, Switzerland}
+
+\section{Mentoring experience}
+\cvitem{2017 and 2018}{\emph{Teaching Assistant for Design of Experiments (636-0022-00L) course at ETH-Zurich}: Designed exercises and helped establish a new course covering concepts of randomization, replication, factorial and fractional factorial designs, confounding and response surface models.}
+\cvitem{Jun-Dec 2016}{\emph{Supervised master thesis} of Charlie Pieterman: In-silico study of the impact of mutation order in MAPK pathway}
+\cvitem{Sep-Nov 2018}{\emph{Supervised research project}of Anna Bailach: Comparison of parameter estimation of ODE models from single-cell and averaged data. }
+\cvitem{Jan-Jun 2019}{\emph{Supervised master thesis of Li Yap-Wei}: Inference of nonlinear mixed effect models using Quasi-Monte Carlo methods.}
+
+\section{Relevant workshops and courses participated in}
+\cvitem{June 2016}{\emph{Attended a two day Drug Discovery and Development Project simulation workshop at  NOVARTIS}: Worked in an interactive team tasked with the discovery and development of a new drug.  }
+ \cvitem{June 2017}{\emph{4th GAMM Juniors summer school on ``Bayesian Inference: probabilistic learning from data''}: A 3 day course on broad topics like Bayesian inference, probability theory and uncertainty quantification. }
+ \cvitem{July 2020}{\emph{Verified course on edX, MalariaX.}}
+
+
+\section{Notable volunteering activities}
+\cvitem{2018-2019}{\emph{Organized the first departmental meeting for 90-120 Ph.D. students}. I was a member of the core team of organizers who put together and conducted a two-day meeting for Ph.D. students in our institute. My tasks included designing the program and conducting workshops.}
+
+
+ \section{Lab and language skills}
+ \cvitem{Wet-lab}{\emph{Basics of cloning in yeast (transformation, mini-prep), flow cytometry, and  beginner in time-lapse (live cell) imaging}}
+ \cvitem{Programming}{\emph{ Intermediate in  C++, R, MATLAB. Experienced user of  MONOLIX.}}
+ %\cvitem{Language}{\emph{Intermediate in French, beginner in German. Fluent in English.}}
+
+%\section{References}
+%\cvitem{}{Dr. Joerg Stelling: \emph{joerg.stelling AT bsse.ethz.ch}}
+%\cvitem{}{Dr. Hans-Michael Kaltencach: \emph{michael.kaltenbach AT bsse.ethz.ch}}
+%\cvitem{}{Dr. Julio Saez-Rodriguez: \emph{julio.saez AT bioquant.uni-heidelberg.de}}
+	
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+%
+%\section{Interests}
+%
+%\renewcommand{\listitemsymbol}{-~} % Changes the symbol used for lists
+%
+%\cvlistdoubleitem{Guitar}{Cooking}
+%\cvlistdoubleitem{Music}{Football}
+
+%----------------------------------------------------------------------------------------
+%	COVER LETTER
+%----------------------------------------------------------------------------------------
+
+% To remove the cover letter, comment out this entire block
+
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
