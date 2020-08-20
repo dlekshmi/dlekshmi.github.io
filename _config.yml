@@ -84,19 +84,19 @@ author:
   avatar           : "pic.jpeg"
   bio              : "PhD candidate at CSB group in ETH Zurich"
   location         : "Basel"
-  employer         :  "https://csb.ethz.ch/"
+  employer         :  "ETH Zurich"
   pubmed           :
   googlescholar    : "https://scholar.google.co.in/citations?user=56EkTykAAAAJ&hl=en"
   email            :
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
-  uri              :
+  uri              : "https://csb.ethz.ch/"
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
   facebook         :
   foursquare       :
-  github           : "https://github.com/dlekshmi/"
+  github           : "dlekshmi"
   google_plus      :
   keybase          :
   instagram        :
