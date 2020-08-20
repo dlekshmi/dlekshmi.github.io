@@ -1,17 +1,13 @@
 # main links links
 main:
-  - title: "Publications"
-    url: /publications/
-
   - title: "Book Reviews"
-    url: /bookReviews/    
+    url: /bookReviews/
 
   - title: "Fun with R"
-    url: /funwithR/    
-       
+    url: /funwithR/
+
   - title: "Blog Posts"
     url: /year-archive/
-    
+
   - title: "CV"
     url: /cv/
-    
