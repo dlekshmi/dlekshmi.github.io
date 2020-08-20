@@ -4,7 +4,7 @@ main:
     url: /bookReviews/
 
   - title: "Fun with R"
-    url: /funwithR/
+    url: /RNotes/
 
   - title: "Blog Posts"
     url: /year-archive/
