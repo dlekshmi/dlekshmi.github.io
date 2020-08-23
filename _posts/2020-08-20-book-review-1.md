@@ -1,11 +1,12 @@
 ---
-title: 'Home and the world, Rabindranath Tagore'
+title: 'Book Review 1: Home and the world, Rabindranath Tagore'
 date: 2020-08-20
 permalink: /bookReviews/2020/08/book-review-1/
 tags:
   - indian
   - fiction
   - history
+  - book_review
 ---
 
 The ‘Home and the World’ by Rabindranath Tagore is one of the books that are still relevant today though written in the 1920s. I read the English version, a translation of the original work by Sreegjata Guha. The novel takes us to 1905, in India when the nationalist movement was picking up and revolves around three characters: Nikilesh, a wealthy and broad-minded business or landowner, his timid yet educated wife Bimala and his friend Sandip, a nationalist leader. The story is about the inner journeys of the three characters.  The story is written in the point-of-view of the three characters, enabling us to inhabit their personalities in different chapters in no specific order. Of course, by doing so, we are forced to look at the Nikilesh, Bimala, and Sandip within ourselves.
