@@ -1,9 +1,8 @@
 ---
-title: 'Book Review 1: Home and the world, Rabindranath Tagore'
+title: 'Home and the world, Rabindranath Tagore'
 date: 2020-08-20
 permalink: /bookReviews/2020/08/book-review-1/
 tags:
-  - book review
   - indian
   - fiction
   - history

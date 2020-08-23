@@ -1,7 +1,5 @@
 # main links links
 main:
-  - title: "Book Reviews"
-    url: /book-archive/
 
   - title: "Fun with R"
     url: /RNotes/
