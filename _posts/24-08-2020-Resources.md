@@ -1,7 +1,7 @@
 ---
 title: 'Resources: Good starting places for an introduction to quantitative sciences in global health'
 date: 2020-08-20
-permalink: /bookReviews/2020/08/Resources/
+permalink: /posts/2020/08/Resources/
 tags:
   - resources
   - epistats
