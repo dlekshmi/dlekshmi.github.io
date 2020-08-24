@@ -23,4 +23,4 @@ I recently developed an interest in global health and am finding my way through 
 1. Steven Strogaz's books, I still go back to them when I need a bit of motivation.
 
 ### Epidemiology
-1. __Coming soon__
+1. _Coming soon_
