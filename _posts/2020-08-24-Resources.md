@@ -13,7 +13,7 @@ tags:
 I recently developed an interest in global health and am finding my way through these resources. I would be regularly updating this space as I go on. 
 
 ### Introduction to global health
-1. [This](https://naturemicrobiologycommunity.nature.com/posts/41300-if-you-had-to-read-one-book-on-global-health) has a list of interesting books on global health. I started already reading some from here and they have been eye-opening to say the least.  
+1. [This](https://naturemicrobiologycommunity.nature.com/posts/41300-if-you-had-to-read-one-book-on-global-health) has a list of interesting books on global health. I started already reading some from here, and they have been eye-opening.  
 
 ### Quantitative sciences in medical research
 1. A [thread](https://threadreaderapp.com/thread/1270411142792388608.html) from Dr. Maarten on useful resources for stats/ methods in medical research.
